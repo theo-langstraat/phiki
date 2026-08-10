@@ -1,5 +1,3 @@
-.. include:: /Includes.rst.txt
-
 Phiki
 =====
 
@@ -28,5 +26,4 @@ Configuration Options
 - **Display of the selected programming language**
 - **Copy-to-clipboard button**
 
-----
-# phiki
+---

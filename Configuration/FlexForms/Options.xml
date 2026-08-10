@@ -1,0 +1,52 @@
+<T3DataStructure>
+    <sheets type="array">
+        <general typ="array">
+            <ROOT type="array">
+                <sheetTitle>LLL:EXT:phiki/Resources/Private/Language/locallang_flexform.xlf:sheet.general</sheetTitle>
+   				<type>array</type>
+                <el type="array">
+					<settings.language>
+						<label>LLL:EXT:phiki/Resources/Private/Language/locallang_flexform.xlf:language</label>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<itemsProcFunc>Theolangstraat\Phiki\Backend\Items\LanguageItemsProvider->addLanguageItems</itemsProcFunc>
+							<default>pascal</default>
+						</config>
+					</settings.language>
+					<settings.theme>
+						<label>LLL:EXT:phiki/Resources/Private/Language/locallang_flexform.xlf:theme</label>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<itemsProcFunc>Theolangstraat\Phiki\Backend\Items\ThemeItemsProvider->addThemeItems</itemsProcFunc>
+							<default>github-dark-default</default>
+						</config>
+					</settings.theme>
+                    <settings.lineNumbers>
+						<label>LLL:EXT:phiki/Resources/Private/Language/locallang_flexform.xlf:lineNumbers</label>
+						<config>
+							<type>check</type>
+							<default>1</default>
+						</config>
+                    </settings.lineNumbers>
+                    <settings.showLanguage>
+						<label>LLL:EXT:phiki/Resources/Private/Language/locallang_flexform.xlf:showLanguage</label>
+						<config>
+							<type>check</type>
+							<default>1</default>
+						</config>
+                    </settings.showLanguage>
+                    <settings.copyButton>
+						<label>LLL:EXT:phiki/Resources/Private/Language/locallang_flexform.xlf:copyButton</label>
+						<config>
+							<type>check</type>
+							<default>1</default>
+						</config>
+                    </settings.copyButton>
+                </el>
+            </ROOT>
+        </general>
+
+    </sheets>
+</T3DataStructure>

@@ -1,0 +1,21 @@
+plugin.tx_phiki {
+    view {
+        templateRootPath = EXT:phiki/Resources/Private/Templates/
+        partialRootPath = EXT:phiki/Resources/Private/Partials/
+        layoutRootPath = EXT:phiki/Resources/Private/Layouts/
+    }
+}
+
+plugin.tx_phiki {
+    settings {
+        # Standaard Phiki theme (kan door FlexForm worden overschreven)
+        theme = default
+
+        # Standaard Phiki opties
+        lineNumbers = 0
+        copyButton = 0
+        showLanguage = 0
+        normalizeWhitespace = 0
+        tabSize = 4
+    }
+}

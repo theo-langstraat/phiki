@@ -1,0 +1,199 @@
+/* Default styles for codehighlight extension */
+
+.codehighlight-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.codehighlight-container pre[class*=language-] {
+    margin-bottom: .3em;
+}
+
+.codehighlight-caption {
+    font-size: 80%;
+    text-align: center;
+}
+
+/* custom.css --------------- */
+
+.line {
+  display: flex;
+  align-items: flex-start;
+}
+
+.line-number {
+  flex: 0 0 auto;     /* ← CRUCIAAL: niet krimpen, niet groeien */
+  width: 5ch;         /* vaste breedte */
+  text-align: right;
+  border-right: 1px solid #444;
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* === Wrapper ========================================================== */
+
+.code-snippet-wrapper {
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* === Header / Toolbar ================================================= */
+
+.code-snippet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    /* Kleur wordt door JS gezet */
+    background-color: inherit;
+    color: inherit;
+}
+
+/* === Language Badge (GitHub style) =================================== */
+
+.language-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 10px;
+
+    /* Wordt door JS overschreven */
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0.15);
+    color: inherit;
+}
+
+/* === Copy Button ====================================================== */
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background: none;
+    border: none;
+    padding: 4px 6px;
+    cursor: pointer;
+
+    /* ESSENTIEEL: laat SVG currentColor erven */
+    color: inherit;
+
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.copy-btn:hover {
+    background-color: rgba(0,0,0,0.08);
+}
+
+.copy-btn:active {
+    background-color: rgba(0,0,0,0.15);
+}
+
+/* SVG icons */
+.copy-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* werkt nu altijd */
+}
+
+/* === Body ============================================================= */
+
+.code-snippet-body {
+    padding: 10px;
+
+    /* Wordt door JS gezet */
+    background-color: inherit;
+    color: inherit;
+
+    overflow-x: auto;
+}
+
+/* Zorg dat Phiki geen rare spacing veroorzaakt */
+.code-snippet-body pre {
+    margin: 0;
+    padding: 0;
+    background: none !important;
+    border: none !important;
+}
+
+/* === Tooltip ========================================================== */
+
+.copy-tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    white-space: nowrap;
+    z-index: 9999;
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.language-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 1;
+    margin-right: 10px;
+
+    /* Kleur wordt door JS gezet */
+    color: inherit;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* Expand button */
+.expand-btn {
+    background: none;
+    border: none;
+    padding: 4px 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: inherit;
+}
+
+.expand-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.2s ease;
+}
+
+/* Rotatie bij collapse */
+.code-snippet-wrapper.collapsed .expand-icon {
+    transform: rotate(-90deg);
+}
+
+/* Smooth collapse */
+.code-snippet-body {
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+.snippet-actions {
+    margin-left: auto;   /* <<< schuift alles rechts */
+    display: flex;
+    align-items: center;
+    gap: 6px;            /* ruimte tussen knoppen */
+}
+.code-snippet-header {
+    gap: 10px;
+}

@@ -1,0 +1,24 @@
+plugin.tx_prismjs {
+    view {
+        templateRootPaths.0 = EXT:phiki/Resources/Private/Templates/
+        templateRootPaths.10 = {$plugin.tx_phiki.view.templateRootPath}
+        partialRootPaths.0 = EXT:phiki/Resources/Private/Partials/
+        partialRootPaths.10 = {$plugin.tx_phiki.view.partialRootPath}
+        layoutRootPaths.0 = EXT:phiki/Resources/Private/Layouts/
+        layoutRootPaths.10 = {$plugin.tx_phiki.view.layoutRootPath}
+    }
+}
+
+plugin.tx_prismjs {
+    settings {
+        # Default Phiki theme (kan door FlexForm worden overschreven)
+        theme = default
+
+        # Standaard opties
+        lineNumbers = 0
+        copyButton = 0
+        showLanguage = 0
+        normalizeWhitespace = 0
+        tabSize = 4
+    }
+}

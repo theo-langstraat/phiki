@@ -1,0 +1,34 @@
+{
+    "name": "theolangstraat/Phiki",
+    "description": "Extbase-based code highlighting content element using Phiki with theme and plugin support.",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Theo Langstraat",
+            "email": "theo.langstraat@delta.nl"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^14.3",
+        "phiki/phiki": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Theolangstraat\\Phiki\\": "Classes/",
+            "Phiki\\": "Classes/Phiki/src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "phiki"
+        }
+    }
+}

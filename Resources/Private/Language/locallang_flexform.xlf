@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-05-16T20:47:00Z">
+        <header/>
+        <body>
+
+            <!-- Sheet titles -->
+            <trans-unit id="sheet.general">
+                <source>General</source>
+                <target>Algemeen</target>
+            </trans-unit>
+
+            <trans-unit id="sheet.appearance">
+                <source>Appearance</source>
+                <target>Weergave</target>
+            </trans-unit>
+
+            <trans-unit id="sheet.behavior">
+                <source>Behavior</source>
+                <target>Gedrag</target>
+            </trans-unit>
+
+            <!-- Fields -->
+            <trans-unit id="language">
+                <source>Language</source>
+                <target>Taal</target>
+            </trans-unit>
+
+            <trans-unit id="lineNumbers">
+                <source>Line numbers</source>
+                <target>Regelnummers</target>
+            </trans-unit>
+
+            <trans-unit id="copyButton">
+                <source>Copy button</source>
+                <target>Kopieerknop</target>
+            </trans-unit>
+
+            <trans-unit id="showLanguage">
+                <source>Show language label</source>
+                <target>Toon taal-label</target>
+            </trans-unit>
+
+            <trans-unit id="highlightLines">
+                <source>Highlight lines</source>
+                <target>Markeer regels</target>
+            </trans-unit>
+
+            <trans-unit id="normalizeWhitespace">
+                <source>Normalize whitespace</source>
+                <target>Normaliseer witruimte</target>
+            </trans-unit>
+
+            <trans-unit id="tabSize">
+                <source>Tab size</source>
+                <target>Tabgrootte</target>
+            </trans-unit>
+
+            <trans-unit id="theme">
+                <source>Phiki Theme</source>
+                <target>Phiki‑thema</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="docsearch:name" content="phiki" />
+    <meta name="docsearch:package_type" content="" />
+    <meta name="docsearch:release" content="2.0.0" />
+    <meta name="docsearch:version" content="" />
+
+    <title>Service Configuration &mdash; phiki 2.0.0 documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9e84d21d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/webfonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/codeblock.css" />
+<!-- linktags -->
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="phiki 2.0.0 documentation" href="#" />
+    <link rel="up" title="Developers" href="../Index.html" />
+    <link rel="next" title="Change log" href="../../ChangeLog/Index.html" />
+    <link rel="prev" title="Backend Preview Renderer" href="../PreviewRenderer/Index.html" />
+<!-- /linktags -->
+<!-- extrahead --><!-- /extrahead -->
+    <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="page-header">
+            <div class="page-header-inner">
+<!--block pageheader-->
+<div class="row">
+    <div class="col-sm-6 col-lg-7">
+
+        <div class="logo">
+        <a href="https://docs.typo3.org/" title="TYPO3 Documentation" >
+
+            <img src="../../_static/img/typo3-logo.svg" width="484" height="130" alt="Logo of phiki" class="logo-image" />
+        </a>
+        </div>
+    </div><!--/.col-x-->
+    <div class="col-sm-6 col-lg-5">
+        <div role="search">
+            
+            <!--form global search-->
+        </div>
+    </div><!--/.col-x-->
+</div><!--/.row-->
+<!--/block pageheader-->
+            </div><!--/.page-header-inner-->
+        </div><!--/.page-header-->
+
+        
+
+        <div class="page-main">
+            <div class="page-main-inner">
+                <div class="page-main-navigation">
+                    <nav>
+                        <input type="checkbox" id="toggleToc" class="toc-checkbox">
+                        <div class="toc-header"><div class="toc-title">
+                                    <a class="toc-title-project" href="../../index.html">phiki</a></div><div class="toc-actions">
+                                <label for="toggleToc" class="toc-toggle">
+                                    Menu
+                                </label>
+                            </div>
+                        </div>
+                        <div class="toc-collapse">
+<!-- searchbox.html -->
+<div id="searchbox" class="toc-search" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get">
+        <input class="form-control" type="text" name="q" placeholder="Search this project" aria-label="Search this project" id="searchinput" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<!-- /searchbox.html -->
+                            <div class="toc" role="navigation" aria-label="main navigation">
+<!-- menu -->
+                                        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/Index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation/Index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Configuration/Index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ProgrammingLanguages/Index.html">Available Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Themes/Index.html">Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Usage/Index.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Index.html">Developers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Controller/Index.html">CodeSnippetController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PreviewRenderer/Index.html">Backend Preview Renderer</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Service Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../ChangeLog/Index.html">Change log</a></li>
+</ul>
+
+                                    <p class="caption"><span class="caption-text">PAGE CONTENTS</span></p>
+                                    <ul>
+<li><a class="reference internal" href="#">Service Configuration</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#autowiring-and-autoconfiguration">Autowiring and Autoconfiguration</a></li>
+<li><a class="reference internal" href="#service-namespace-registration">Service Namespace Registration</a></li>
+<li><a class="reference internal" href="#resolver-services">Resolver Services</a></li>
+<li><a class="reference internal" href="#backend-item-providers">Backend Item Providers</a></li>
+<li><a class="reference internal" href="#backend-preview-renderer">Backend Preview Renderer</a></li>
+<li><a class="reference internal" href="#extending-or-overriding-services">Extending or Overriding Services</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+<!-- /menu -->
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="page-main-content">
+                    <div class="rst-content">
+<!-- pager-hidden.html -->
+
+        <a class="no-focus" accesskey="p" href="../PreviewRenderer/Index.html" tabindex="-1"></a>
+        <a class="no-focus" accesskey="n" href="../../ChangeLog/Index.html" tabindex="-1"></a>
+<!-- /pager-hidden.html -->
+<!-- breadcrumbs.html -->
+<div class="breadcrumb-bar" role="navigation" aria-label="breadcrumbs navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Start</a></li>
+            <li class="breadcrumb-item"><a href="../Index.html">Developers</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Service Configuration</li>
+    </ol>
+    <div class="breadcrumb-additions">
+        <a class="btn btn-sm btn-light" href="../../_sources/Developers/Services/Index.rst.txt" rel="nofollow noopener" target="_blank">
+            <span class="btn-icon"><span class="fas fa-code"></span></span>
+            <span class="btn-text">View source</span>
+        </a>
+    </div>
+</div>
+<!-- /breadcrumbs.html -->
+<!-- displaysettingsui.html -->
+<div id="displaysettingsui" class="displaysettingsui">
+<div class="dsDivCogwheel"><i id="dsCogwheel" class="fas fa-cog" title="Display settings"></i></div>
+<div id="dsPanel" class="dsPanel" ><p><b>Display settings</b></p>
+<input type="checkbox" id="cbFullWidth"><label for="cbFullWidth">Use full width</label><br>
+Color scheme of code blocks:<br>
+<input type="radio" name="rbCbsTheme" id="rbCbsThemeDark" checked="checked" value="dark"/>
+<label for="rbCbsThemeDark">dark</label>
+<input type="radio" name="rbCbsTheme" id="rbCbsThemeLight" value="light"/>
+<label for="rbCbsThemeLight">light</label><br>
+<input type="checkbox" id="cbPermanent"><label for="cbPermanent">Make settings permanent</label><br>
+</div><!--/.dsPanel-->
+</div><!--/.displaysettingsui-->
+<!-- /displaysettingsui.html -->
+<!-- versionhints.html -->
+<div class="version-hints">
+
+    <div class="version-hints-inner" data-run-ajax="no">
+<!--filled from _static/ajax-version-hints.html-->
+</div><!--/.version-hints-inner-->
+</div><!--/.version-hints-->
+<!-- /versionhints.html -->
+                        <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                            <div itemprop="articleBody">
+<!-- body -->
+    <section id="service-configuration">
+<h1>Service Configuration<a class="headerlink" href="#service-configuration" title="Link to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>The extension uses TYPO3’s Symfony-based service container for dependency
+injection. All classes under <code class="docutils literal notranslate"><span class="pre">Classes/</span></code> are automatically registered as
+services, except those explicitly excluded. This allows controllers, preview
+renderers, and backend item providers to receive their dependencies cleanly
+and consistently.</p>
+</section>
+<section id="autowiring-and-autoconfiguration">
+<h2>Autowiring and Autoconfiguration<a class="headerlink" href="#autowiring-and-autoconfiguration" title="Link to this heading">¶</a></h2>
+<p>The service configuration enables TYPO3’s autowiring and autoconfiguration:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_defaults</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">autowire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>This means:</p>
+<ul class="simple">
+<li><p>Dependencies are injected automatically based on type hints.</p></li>
+<li><p>Common TYPO3 service tags (e.g. event listeners) are applied automatically.</p></li>
+<li><p>Services remain private unless explicitly marked otherwise.</p></li>
+</ul>
+<p>This keeps the configuration minimal while still allowing fine‑grained control
+when needed.</p>
+</section>
+<section id="service-namespace-registration">
+<h2>Service Namespace Registration<a class="headerlink" href="#service-namespace-registration" title="Link to this heading">¶</a></h2>
+<p>The following block registers all classes in the extension as services:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Theolangstraat\Phiki\</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../Classes/*&#39;</span>
+<span class="w">  </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../Classes/Phiki/&#39;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">exclude</span></code> directive prevents the internal Phiki library classes from being
+treated as TYPO3 services. Only the extension’s own classes are autowired.</p>
+</section>
+<section id="resolver-services">
+<h2>Resolver Services<a class="headerlink" href="#resolver-services" title="Link to this heading">¶</a></h2>
+<p>Two resolver services are defined explicitly:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Theolangstraat\Phiki\Service\PhikiGrammarResolver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
+<span class="nt">Theolangstraat\Phiki\Service\PhikiThemeResolver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+<p>These services map FlexForm selections (language and theme) to the correct
+Phiki grammar and theme objects. They are injected into both the frontend
+controller and the backend preview renderer.</p>
+<p>Developers may extend or override these resolvers to introduce:</p>
+<ul class="simple">
+<li><p>Custom grammars</p></li>
+<li><p>Additional themes</p></li>
+<li><p>Project‑specific mapping logic</p></li>
+</ul>
+</section>
+<section id="backend-item-providers">
+<h2>Backend Item Providers<a class="headerlink" href="#backend-item-providers" title="Link to this heading">¶</a></h2>
+<p>The extension registers two item providers:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Theolangstraat\Phiki\Backend\Items\ThemeItemsProvider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
+<span class="nt">Theolangstraat\Phiki\Backend\Items\LanguageItemsProvider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+<p>These providers populate FlexForm dropdowns with the full list of supported
+languages and themes. They ensure that editors always see up‑to‑date options
+without hardcoding values in the FlexForm XML.</p>
+</section>
+<section id="backend-preview-renderer">
+<h2>Backend Preview Renderer<a class="headerlink" href="#backend-preview-renderer" title="Link to this heading">¶</a></h2>
+<p>The backend preview renderer is registered as an event listener:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Theolangstraat\Phiki\Backend\Preview\CodeSnippetPreviewRenderer</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event.listener</span>
+<span class="w">      </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;phiki-backend-preview&#39;</span>
+<span class="w">      </span><span class="nt">event</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent</span>
+</pre></div>
+</div>
+<p>This connects the renderer to TYPO3’s backend preview system. Whenever a
+<code class="docutils literal notranslate"><span class="pre">PageContentPreviewRenderingEvent</span></code> occurs, TYPO3 invokes the renderer, which
+then checks whether the record is a <code class="docutils literal notranslate"><span class="pre">phiki_snippet</span></code> element and generates the
+iframe-based preview.</p>
+<p>Developers can override this listener or add additional listeners if they want
+to customize backend rendering behavior.</p>
+</section>
+<section id="extending-or-overriding-services">
+<h2>Extending or Overriding Services<a class="headerlink" href="#extending-or-overriding-services" title="Link to this heading">¶</a></h2>
+<p>TYPO3 allows developers to override any service using <code class="docutils literal notranslate"><span class="pre">services.yaml</span></code> in their
+own sitepackage or extension. Common extension points include:</p>
+<ul class="simple">
+<li><p>Replacing the grammar resolver with a custom implementation.</p></li>
+<li><p>Adding new theme providers.</p></li>
+<li><p>Overriding the preview renderer for custom backend styling.</p></li>
+<li><p>Injecting additional services into the controller for advanced features.</p></li>
+</ul>
+<p>Because autowiring is enabled, custom services only need correct type hints to
+be injected automatically.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<p>The service configuration ensures that the Phiki extension integrates cleanly
+with TYPO3’s dependency injection system. Resolver services, item providers,
+and the preview renderer are all registered in a predictable and extensible
+way, making it straightforward for developers to customize or extend the
+extension’s behavior.</p>
+</section>
+</section>
+
+<!-- /body -->
+                            </div>
+                        </div>
+<!-- pager.html -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="../PreviewRenderer/Index.html" title="Accesskey Alt(+Shift)+p">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="../../ChangeLog/Index.html" title="Accesskey Alt(+Shift)+n">
+                Next
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+<!-- /pager.html -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="page-footer">
+<!-- footer.html -->
+<footer>
+    <div class="frame frame-ruler-before frame-background-dark">
+        <div class="frame-container">
+            <div class="frame-inner">
+                <ul class="footer-simplemenu">
+                    <li><a href="https://www.langstraatonline.nl" title="Home"><span>Home</span></a></li><li><a href="mailto:theo.langstraat@delta.nl" title="Contact"><span>Contact</span></a></li>
+                </ul>
+                <div class="footer-additional">
+                    <ul class="footer-simplemenu">
+                        <li><a href="https://github.com/TYPO3-Documentation/sphinx_typo3_theme" title="sphinx_typo3_theme" target="_blank">
+                        <span>TYPO3 Theme 4.9.0</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-meta">
+                    <div class="footer-meta-copyright">
+                        &copy; Copyright 2026–2026, Theo Langstraat
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /footer.html -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT: '../../',
+            VERSION: '2.0.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE: true
+        };
+    </script>
+    <script type="text/javascript" src="../../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/underscore.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/doctools.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/popper.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.min.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/searchtools.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/autocomplete.min.js"></script>
+    <script src="../../_static/documentation_options.js?v=94def793"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script type="text/javascript">
+        jQuery(function() { Search.loadIndex("../../searchindex.js"); });
+    </script>
+    <script type="text/javascript" id="searchindexloader"></script>
+<!-- scripts2 --><!-- /scripts2 -->
+<!-- footer2 --><!-- /footer2 -->
+
+</body>
+</html>

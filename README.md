@@ -25,5 +25,3 @@ Configuration Options
 - **Line numbers**
 - **Display of the selected programming language**
 - **Copy-to-clipboard button**
-
----

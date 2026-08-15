@@ -33,8 +33,15 @@ Programming languages and themes
 
    *Create New Content – Configuration → Languages*
 
-Settings
---------
+Phiki Configuration
+===================
+
+The Phiki extension supports both **local** and **global** configuration options.
+
+Local Settings
+--------------
+Local settings can be defined per *content element*.  
+This allows you to fine‑tune the behavior of individual elements based on their specific purpose or content.
 
 .. figure:: /Screenshots/CreateNewContentSettings.png
    :alt: Create New Content Settings
@@ -57,6 +64,23 @@ Settings
 
 * **Copy button:**
   Shows a copy button in the header of the content element.
+
+
+Global Settings
+---------------
+
+Global settings are managed centrally via:
+
+``System -> Settings -> Extension Configuration -> Phiki``
+
+These settings control the overall behavior of the Phiki extension across the entire system.
+
+.. figure:: /Screenshots/ExtensionConfiguration.png
+   :alt: ExtensionConfiguration
+   :class: with-shadow
+   :width: 100%
+
+   *Extension Configuration*
 
 Frontend
 --------

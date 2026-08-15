@@ -92,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ProgrammingLanguages/Index.html">Available Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Themes/Index.html">Themes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#phiki-configuration">Phiki Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Developers/Index.html">Developers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Developers/Controller/Index.html">CodeSnippetController</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Developers/PreviewRenderer/Index.html">Backend Preview Renderer</a></li>
@@ -106,7 +107,11 @@
 <li><a class="reference internal" href="#">Usage</a><ul>
 <li><a class="reference internal" href="#create-new-content">Create New Content</a></li>
 <li><a class="reference internal" href="#programming-languages-and-themes">Programming languages and themes</a></li>
-<li><a class="reference internal" href="#settings">Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#phiki-configuration">Phiki Configuration</a><ul>
+<li><a class="reference internal" href="#local-settings">Local Settings</a></li>
+<li><a class="reference internal" href="#global-settings">Global Settings</a></li>
 <li><a class="reference internal" href="#frontend">Frontend</a></li>
 <li><a class="reference internal" href="#backend">Backend</a></li>
 </ul>
@@ -194,8 +199,14 @@ Using a headline or any other field is optional.</p>
 </figcaption>
 </figure>
 </section>
-<section id="settings">
-<h2>Settings<a class="headerlink" href="#settings" title="Link to this heading">¶</a></h2>
+</section>
+<section id="phiki-configuration">
+<h1>Phiki Configuration<a class="headerlink" href="#phiki-configuration" title="Link to this heading">¶</a></h1>
+<p>The Phiki extension supports both <strong>local</strong> and <strong>global</strong> configuration options.</p>
+<section id="local-settings">
+<h2>Local Settings<a class="headerlink" href="#local-settings" title="Link to this heading">¶</a></h2>
+<p>Local settings can be defined per <em>content element</em>.
+This allows you to fine‑tune the behavior of individual elements based on their specific purpose or content.</p>
 <figure class="align-default" id="id4">
 <a class="with-shadow reference internal image-reference" href="../_images/CreateNewContentSettings.png"><img alt="Create New Content Settings" class="with-shadow" src="../_images/CreateNewContentSettings.png" style="width: 600px;" />
 </a>
@@ -216,6 +227,19 @@ Shows the selected language in the header of the content element.</p></li>
 Shows a copy button in the header of the content element.</p></li>
 </ul>
 </section>
+<section id="global-settings">
+<h2>Global Settings<a class="headerlink" href="#global-settings" title="Link to this heading">¶</a></h2>
+<p>Global settings are managed centrally via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">-&gt;</span> <span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">Extension</span> <span class="pre">Configuration</span> <span class="pre">-&gt;</span> <span class="pre">Phiki</span></code></p>
+<p>These settings control the overall behavior of the Phiki extension across the entire system.</p>
+<figure class="align-default" id="id5">
+<a class="with-shadow reference internal image-reference" href="../_images/ExtensionConfiguration.png"><img alt="ExtensionConfiguration" class="with-shadow" src="../_images/ExtensionConfiguration.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>Extension Configuration</em></span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
 <section id="frontend">
 <h2>Frontend<a class="headerlink" href="#frontend" title="Link to this heading">¶</a></h2>
 <figure class="align-default">
@@ -225,11 +249,11 @@ Shows a copy button in the header of the content element.</p></li>
 </section>
 <section id="backend">
 <h2>Backend<a class="headerlink" href="#backend" title="Link to this heading">¶</a></h2>
-<figure class="align-default" id="id5">
+<figure class="align-default" id="id6">
 <a class="with-shadow reference internal image-reference" href="../_images/Backend.png"><img alt="Frontend" class="with-shadow" src="../_images/Backend.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><em>Backend view</em></span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<p><span class="caption-text"><em>Backend view</em></span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />

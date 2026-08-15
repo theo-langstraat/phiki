@@ -1,19 +1,6 @@
 <?php
 declare(strict_types = 1);
 
-/*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
- */
-
 namespace Theolangstraat\Phiki\Backend\Items;
 
 use Phiki\Grammar\Grammar;
@@ -56,5 +43,20 @@ class LanguageItemsProvider
                 $value,   // Enum value
             ];
         }
+    }
+
+    // Used to generate all Labels, Values for use in ext_conf_template.txt
+    public function addLanguageItemsEx(): string
+    {
+        $config = '';
+
+            foreach (Grammar::cases() as $grammar) {
+            $value = $grammar->value;
+
+            $label = self::LABELS[$value] ?? ucfirst($value);
+
+            $config .= $label . '=' . $value . ',';
+        }
+        return $config;
     }
 }

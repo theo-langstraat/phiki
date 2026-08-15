@@ -8,13 +8,14 @@ services:
     resource: '../Classes/*'
     exclude: '../Classes/Phiki/'
 
-  Theolangstraat\Phiki\Service\PhikiGrammarResolver: ~
-  Theolangstraat\Phiki\Service\PhikiThemeResolver: ~
-  Theolangstraat\Phiki\Backend\Items\ThemeItemsProvider: ~
-  Theolangstraat\Phiki\Backend\Items\LanguageItemsProvider: ~
-
   Theolangstraat\Phiki\Backend\Preview\CodeSnippetPreviewRenderer:
     tags:
       - name: event.listener
         identifier: 'phiki-backend-preview'
         event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
+
+  Theolangstraat\Phiki\EventListeners\FlexFormDefaultsListener:
+    tags:
+      - name: event.listener
+        identifier: 'phiki-flexform-defaults'
+        event: TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent

@@ -7,6 +7,10 @@
         {
             "name": "Theo Langstraat",
             "email": "theo.langstraat@delta.nl"
+        },
+        {
+            "name": "Ryan Chandler",
+            "email": ""
         }
     ],
     "require": {

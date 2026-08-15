@@ -61,6 +61,16 @@
                 <target>Phiki‑thema</target>
             </trans-unit>
 
+            <trans-unit id="useDefaultFeaturesGlobally">
+                <source>Use default features globally. The global feature configuration is defined in System → Settings → Extension Configuration → phiki and is shown here as read‑only.</source>
+                <target>Gebruik de globale standaardfeatures. De globale featureconfiguratie wordt beheerd via System → Settings → Extension Configuration → phiki en wordt hier alleen ter informatie weergegeven (read‑only).</target>
+            </trans-unit>
+
+            <trans-unit id="useDefaultThemeGlobally">
+                <source>Use the global default theme. The theme configuration is defined in System → Settings → Extension Configuration → phiki and shown here as read‑only.</source>
+                <target>Gebruik het globale standaardthema. De themaconfiguratie wordt beheerd via System → Settings → Extension Configuration → phiki en wordt hier alleen ter informatie weergegeven (read‑only).</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

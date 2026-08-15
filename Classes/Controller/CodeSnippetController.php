@@ -1,19 +1,6 @@
 <?php
 declare(strict_types = 1);
 
-/*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
- */
-
 namespace Theolangstraat\Phiki\Controller;
 
 use TYPO3\CMS\Core\Page\PageRenderer;
@@ -23,6 +10,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use Theolangstraat\Phiki\Service\PhikiGrammarResolver;
 use Theolangstraat\Phiki\Service\PhikiThemeResolver;
 use Phiki\Phiki;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 final class CodeSnippetController extends ActionController
 {
@@ -42,6 +30,7 @@ final class CodeSnippetController extends ActionController
 
     public function showAction(): ResponseInterface
     {
+
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
 
         $pageRenderer->addJsFile('EXT:phiki/Resources/Public/JavaScript/copy.js');
@@ -50,15 +39,50 @@ final class CodeSnippetController extends ActionController
         
         $flex = $this->settings ?? [];
 
-        $theme = $flex['theme'] ?? 'default';
-        $language = $flex['language'] ?? 'php';
-        $lineNumbers = !empty($flex['lineNumbers']);
-        $copyButton = !empty($flex['copyButton']);
-        $showLanguage = !empty($flex['showLanguage']);
-        $normalizeWhitespace = !empty($flex['normalizeWhitespace']);
-        $tabSize = isset($flex['tabSize']) ? (int)$flex['tabSize'] : 0;
+        // FlexForm settings
+        $settings = $this->settings;
+
+        // Voeg global settings toe die naar Fluid worden gestuurd
+        $extConfig = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('phiki');
+        $settings['useDefaultFeaturesGlobally'] = (bool)$extConfig['useDefaultFeaturesGlobally'];
+        $settings['useDefaultThemeGlobally'] = (bool)$extConfig['useDefaultThemeGlobally'];
+        $settings['defLanguage'] = $extConfig['language'];
+        $settings['defTheme'] = $extConfig['theme'];
+        $settings['defLineNumbers'] = (bool)$extConfig['lineNumbers'];
+        $settings['defShowLanguage'] = (bool)$extConfig['showLanguage'];
+        $settings['defCopyButton'] = (bool)$extConfig['copyButton'];
+
+        // Maak beschikbaar in de template
+        $this->view->assign('settings', $settings);
+
+        if ($extConfig['useDefaultFeaturesGlobally'] === '1') {
+
+            $lineNumbers = (bool)$extConfig['lineNumbers']; 
+            $copyButton = (bool)$extConfig['copyButton'];
+            $showLanguage = (bool)$extConfig['showLanguage'];
+
+        } else {
+
+            $lineNumbers = (bool)($flex['lineNumbers']);
+            $copyButton = (bool)($flex['copyButton']);
+            $showLanguage = (bool)($flex['showLanguage']);
+    
+        } 
+
+        if ($extConfig['useDefaultThemeGlobally'] === '1') {
+
+            $theme = $extConfig['theme'];
+
+        } else {
+
+            $theme = $flex['theme'] ?? 'default';
+    
+        } 
+
+        $language = $flex['language'];
 
         $data = $this->request->getAttribute('currentContentObject')->data ?? [];
+
         $snippet = $data['bodytext'] ?? '';
 
         $phiki = new Phiki();
@@ -67,6 +91,7 @@ final class CodeSnippetController extends ActionController
         $grammar = $this->phikiGrammarResolver->resolve($language);
         $themeObj = $this->phikiThemeResolver->resolve($theme);
         
+
         $snippet = $phiki->codeToHtml($snippet, $grammar, $themeObj);
 
         // Line numbers → Phiki noemt dit "gutter"
@@ -93,3 +118,4 @@ final class CodeSnippetController extends ActionController
 
     }
 }
+

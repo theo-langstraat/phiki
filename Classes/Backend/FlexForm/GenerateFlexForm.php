@@ -1,3 +1,39 @@
+<?php
+declare(strict_types=1);
+
+namespace Theolangstraat\Phiki\Backend\FlexForm;
+
+use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+
+final class GenerateFlexForm
+{
+    public function generate(string $identifier, array $configuration): void
+    {
+        $xml = $this->buildFlexFormXml($configuration);
+
+        $file = Environment::getVarPath() . '/phiki/flexforms/' . $identifier . '.xml';
+        GeneralUtility::mkdir_deep(dirname($file));
+        GeneralUtility::writeFile($file, $xml);
+
+        //file_put_contents($file, $xml);
+    }
+
+    private function buildFlexFormXml(array $configuration): string
+    {
+        $extConfig = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('phiki');
+
+        $useDefaultFeaturesGlobally = (int)$extConfig['useDefaultFeaturesGlobally'];
+        $useDefaultThemeGlobally    = (int)$extConfig['useDefaultThemeGlobally'];
+
+        $language    = $configuration['language'] ?? 'pascal';
+        $theme       = $configuration['theme'] ?? 'github-dark-default';
+        $lineNumbers = (int)($configuration['lineNumbers'] ?? 1);
+        $showLanguage= (int)($configuration['showLanguage'] ?? 1);
+        $copyButton  = (int)($configuration['copyButton'] ?? 1);
+
+        return <<<XML
 <?xml version="1.0" encoding="utf-8"?>
 <T3DataStructure>
     <sheets type="array">
@@ -13,7 +49,7 @@
                             <type>select</type>
                             <renderType>selectSingle</renderType>
                             <itemsProcFunc>Theolangstraat\Phiki\Backend\Items\LanguageItemsProvider->addLanguageItems</itemsProcFunc>
-                            <default>php</default>
+                            <default>{$language}</default>
                         </config>
                     </settings.language>
 
@@ -24,7 +60,7 @@
                             <type>select</type>
                             <renderType>selectSingle</renderType>
                             <itemsProcFunc>Theolangstraat\Phiki\Backend\Items\ThemeItemsProvider->addThemeItems</itemsProcFunc>
-                            <default>github-dark</default>
+                            <default>{$theme}</default>
                         </config>
                     </settings.theme>
 
@@ -33,7 +69,7 @@
                         <displayCond>FIELD:useDefaultFeaturesGlobally:=:0</displayCond>
                         <config>
                             <type>check</type>
-                            <default>1</default>
+                            <default>{$lineNumbers}</default>
                         </config>
                     </settings.lineNumbers>
 
@@ -42,7 +78,7 @@
                         <displayCond>FIELD:useDefaultFeaturesGlobally:=:0</displayCond>
                         <config>
                             <type>check</type>
-                            <default>1</default>
+                            <default>{$showLanguage}</default>
                         </config>
                     </settings.showLanguage>
 
@@ -51,7 +87,7 @@
                         <displayCond>FIELD:useDefaultFeaturesGlobally:=:0</displayCond>
                         <config>
                             <type>check</type>
-                            <default>1</default>
+                            <default>{$copyButton}</default>
                         </config>
                     </settings.copyButton>
 
@@ -60,7 +96,7 @@
                         <config>
                             <type>check</type>
                             <readOnly>TRUE</readOnly>
-                            <default>1</default>
+                            <default>{$useDefaultFeaturesGlobally}</default>
                         </config>
                     </useDefaultFeaturesGlobally>
 
@@ -69,7 +105,7 @@
                         <config>
                             <type>check</type>
                             <readOnly>TRUE</readOnly>
-                            <default>1</default>
+                            <default>{$useDefaultThemeGlobally}</default>
                         </config>
                     </useDefaultThemeGlobally>
 
@@ -78,3 +114,6 @@
         </sDEF>
     </sheets>
 </T3DataStructure>
+XML;
+}
+}

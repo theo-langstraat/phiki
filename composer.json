@@ -1,5 +1,5 @@
 {
-    "name": "theolangstraat/Phiki",
+    "name": "theolangstraat/phiki",
     "description": "Extbase-based code highlighting content element using Phiki with theme and plugin support.",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
